@@ -141,7 +141,7 @@ class SearchList(AbstactList):
         if(len(history) >= req_count):
             SQL.set('DELETE FROM search WHERE `id` = (SELECT MIN(id) FROM search)')
 
-        post_data={'search_word' : params['vsearch'] , 'from' : SITE_URL+'/'}
+        post_data={'search_word' : params['vsearch']}
         post_result = self.ajax(SITE_URL+'/api/search/suggest',post_data)
         json_result = json.loads(post_result)
 
